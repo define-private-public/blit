@@ -1,0 +1,10 @@
+====== Timeline Widgets ======
+
+The purpose of the Timeline widgets is to visualize and edit properties of the classes found in the [[:animation|Animation]] module.
+
+===== List of Widgets =====
+  * [[widgets:timeline:cursor|Cursor]]
+  * [[widgets:timeline:ruler|Ruler]]
+  * [[widgets:timeline:tick|Tick]]
+  * [[widgets:timeline:timeline|Timeline]]
+  * [[widgets:timeline:trianglemarker|Triangle Marker]]

@@ -1,0 +1,3 @@
+====== Philosophy ======
+
+The basic philosophy of Blit is to be a simple, extensible, and useable.  Blit is designed with an "Animation First," philosophy.  In the process of development, it's best to use Animation terms (.e.g "Planes," instead of "Layers,").

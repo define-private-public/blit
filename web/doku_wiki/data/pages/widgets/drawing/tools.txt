@@ -1,0 +1,10 @@
+====== Tools ======
+
+The Tools submodule of the [[widgets:drawing|Drawing Widgets]] are a set of well, tools, that are used to draw pixels onto [[:animation:cel|Cel objects]].  All of the Tools implement the [[widgets:drawing:tools:tool|Tool interface]].
+
+
+===== List of standard Tools ======
+  * [[widgets:drawing:tools:pen|Pen Tool]]
+  * [[widgets:drawing:tools:brush|Brush Tool]] (TODO implement)
+  * [[widgets:drawing:tools:eraser|Eraser Tool]]
+  * [[widgets:drawing:tools:move|Move Tool]]

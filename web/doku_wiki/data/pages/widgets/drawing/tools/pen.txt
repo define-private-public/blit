@@ -1,0 +1,8 @@
+====== Pen Tool ======
+
+The Pen tool is a [[widgets:drawing:tools|Drawing Tool]] that implements the [[widgets:drawing:tools:tool|Tool Interface]].  It provides a simple method of putting/drawing pixels.  It will take the current color from [[:blitapp|BlitApp]] and then paint that onto the current [[animation:cel|Cel]].
+
+  * It is stateful
+    * It relies on [[:blitapp|BlitApp]] to get the current color, [[animation:cel|Cel]], and [[widgets:drawing:canvas|Canvas]]
+  * There is a QSpinBox in the options panel to adjust the thickness
+  * It paints "hard edges"

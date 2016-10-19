@@ -1,0 +1,6 @@
+======Toolbox======
+
+The Toolbox is a widget that is used to contain and organize [[widgets:drawing:tools|Drawing Tools]].  It is contained in the [[widgets:toolswindow|Tools Window]].
+
+  * It is a sublcass of QWidget
+  * It is stateless

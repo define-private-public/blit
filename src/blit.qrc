@@ -1,0 +1,31 @@
+<!DOCTYPE RCC>
+<RCC version="1.0">
+<qresource>
+    <file alias="play_icon">images/icons/play.png</file>
+    <file alias="beginning_icon">images/icons/beginning.png</file>
+    <file alias="end_icon">images/icons/end.png</file>
+    <file alias="loop_icon">images/icons/loop.png</file>
+    <file alias="frame_add_icon">images/icons/frame_add.png</file>
+    <file alias="frame_delete_icon">images/icons/frame_delete.png</file>
+    <file alias="frame_copy_icon">images/icons/frame_copy.png</file>
+    <file alias="color_add_icon">images/icons/color_add.png</file>
+    <file alias="arrow_up_icon">images/icons/arrow_up.png</file>
+    <file alias="arrow_down_icon">images/icons/arrow_down.png</file>
+    <file alias="cel_add_icon">images/icons/cel_add.png</file>
+    <file alias="cel_delete_icon">images/icons/cel_delete.png</file>
+    <file alias="cel_copy_icon">images/icons/cel_copy.png</file>
+    <file alias="info_icon">images/icons/info.png</file>
+    <file alias="lightbulb_icon">images/icons/lightbulb.png</file>
+    <file alias="selective_playback_icon">images/icons/selective_playback.png</file>
+    <file alias="pen_tool_icon">images/icons/tools/pen.png</file>
+    <file alias="brush_tool_icon">images/icons/tools/brush.png</file>
+    <file alias="eraser_tool_icon">images/icons/tools/eraser.png</file>
+    <file alias="line_tool_icon">images/icons/tools/line.png</file>
+    <file alias="shape_tool_icon">images/icons/tools/shape.png</file>
+    <file alias="fill_tool_icon">images/icons/tools/fill.png</file>
+    <file alias="move_tool_icon">images/icons/tools/move.png</file>
+    <file alias="resize_tool_icon">images/icons/tools/resize.png</file>
+    <file alias="color_picker_tool_icon">images/icons/tools/color_picker.png</file>
+</qresource>
+</RCC>
+

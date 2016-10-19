@@ -1,0 +1,9 @@
+====== Cursor ======
+
+//Not to be confused with [[http://doc.qt.io/qt-5/qcursor.html|QCursor]],// the Cursor object is used to scrub through the [[tick|Ticks]] in the [[timeline|Timeline]].
+
+  * It is a sublcass of QGraphicsObject
+  * It is stateful
+    * This is becuase it needs to know how long the sequence is because of bounds checking
+  * Contains a child QGraphicsLineItem
+  * It can be moved by the user, or when a [[tick|Tick]] is selected

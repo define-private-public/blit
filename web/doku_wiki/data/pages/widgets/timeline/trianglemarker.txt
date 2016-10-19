@@ -1,0 +1,6 @@
+====== Triangle Marker ======
+
+The Triangle Marker is a class that is used in the [[timeline|Timeline]] widget.  It is a simple marker to aid the user visually.  Example useage is when moving a [[tick|Tick]]/[[:animation:frame|Frame]] (by dragging), it will mark where the Tick/Frame will be moved to.
+
+  * It is a subclass of QGraphicsPolygonItem
+  * It is stateless

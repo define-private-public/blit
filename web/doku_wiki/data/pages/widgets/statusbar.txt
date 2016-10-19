@@ -1,0 +1,7 @@
+====== Status Bar ======
+
+StatusBar is a QStatusBar widget for [[:blitapp|BlitApp's]] QMainWindow.  It's purpose is to display some inforamation and editing options for the user (e.g. a drop down for changing the [[widgets:drawing:canvas|Canvas]] zoom).
+
+  * It is a subclass of QStatusBar
+  * It is stateful
+    * [[:blitapp|BlitApp]] needs to be its parent widget  (for signals & slots)

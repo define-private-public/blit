@@ -1,0 +1,6 @@
+====== Ruler ======
+
+Ruler is a item that is contained in the [[timeline|Timeline]] widget.  Its job is to meausre the length of the [[:animation:xsheet|XSheet]] sequence in frame holds.
+
+  * It is a subclass of QGraphicsObject
+  * It is stateless

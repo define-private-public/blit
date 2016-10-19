@@ -1,0 +1,11 @@
+====== Cel ======
+
+A single paintable layer.
+
+  * It is a sublcass of  QGraphicsObject
+  * It is a stateful class that depends on [[:blitapp|BlitApp]]'s current project location
+    * This is set though in the constructor when the Cel is first created, and is presistance throughout the life of the Cel
+    * So it's less stateful, but depends on the instantiation of [[:blitapp|BlitApp]]
+  * The actual image data is only loaded up when the Cel is marked "active."
+  * All Cels are saved to the project location as 32-Bit PNG images.
+  * Cels can have an arbitrary size and location in the [[frame|Frame]]

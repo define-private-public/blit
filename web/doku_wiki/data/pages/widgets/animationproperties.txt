@@ -1,0 +1,9 @@
+====== Animation Properties Dialog ======
+
+The AnimationPropertiesDialog class is a singleton dialog window that lets the user change certain properties in the loaded [[animation:animation|Aniamtion]] object.
+
+  * It is stateless
+    * Though it should only be instantiaed via the [[:blitapp|BlitApp]]
+  * It is a subclass of QDialog
+  * It display info like the creation date and last edited date
+  * It only allows the user to edit the frame size and the name of the [[animation:animation|Animation]]

@@ -1,0 +1,68 @@
+digraph {
+	label="Animation module (makes for more resuable objects)";
+
+	subgraph cluster_qt {
+		label="Qt";
+		QObject;
+		QGraphicsObject;
+		QWidget;
+		QGraphicsScene;
+		QGraphicsView;
+	}
+
+	// Cel stuff
+	subgraph cluster_cels { 
+		label="Cel System"
+		Cel -> QObject[label="inherits"];
+		{PNGCel VectorCel LiveCameraCel} -> Cel[label="implements"];
+
+		// for the Frame
+		CelRef -> QObject[label="inherits"];
+		CelRef -> {Cel PNGCel VectorCel LiveCameraCel}[label="pointer to"];
+
+		// QGraphicsView stuff
+		CelRefItem -> QGraphicsObject[label="inherits"];
+		CelRefItem -> CelRef[label="visualizes"];
+	}
+
+	// Frame stuff
+	subgraph cluster_frames {
+		label="Frame System";
+		Frame -> QObject[label="inherits"];
+		Frame -> CelRef[label="list of"];
+
+		TimedFrame -> QObject[label="inherits"];
+		TimedFrame -> Frame[label="pointer to"];
+	}
+
+	// XSheet
+	subgraph cluster_xsheet {
+		label="XSheet system";
+		XSheet -> QObject[label="iherits"];
+		XSheet -> TimedFrame[label="list of"];
+	}
+
+	// Unorg
+	subgraph cluster_animation {
+		label="Animation";
+		Animation -> QObject[label="inherits"];
+		Animation -> {XSheet CelLibrary FrameLibrary}[label="owns"];
+	}
+
+
+	// Timeline
+	subgraph cluster_timeline {
+		label="Timeline";
+		Timeline -> XSheet[label="visualizes"];
+		Tick -> TimedFrame[label="visualizes"];
+	}
+
+	// Drawing
+	subgraph cluster_drawing {
+		label="Drawing";
+		Canvas -> QWidget[label="inherits"];
+		Canvas -> {QGraphicsScene QGraphicsView}[label="contains"];
+		Canvas -> CelRefItem[label="contains"];
+	}
+
+}

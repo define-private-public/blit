@@ -1,0 +1,9 @@
+====== Canvas =======
+
+//Not to be confused with the deprecated [[http://doc.qt.digia.com/3.3/qcanvas.html|QCanvas]],// The Canvas widget is used to both display and provide a means for painting on [[:animation:cel|Cel]] and [[:animation:frame|Frame]] objects.
+
+  * It is a sublcass of QGraphicsView
+  * It is stateful.
+    * It depends on [[:blitapp|BlitApp]] for the current zoom for drawing things like the grid.
+  * It features zooming and a grid (for pixels)
+  * It emits a few signals which have been passed up from the [[:animation:frame|Frame]] object

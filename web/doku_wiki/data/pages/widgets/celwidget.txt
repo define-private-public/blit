@@ -1,0 +1,17 @@
+====== Cel Widget ======
+
+The CelWidget is a simple widget that is used within the [[widgets:celswindow|Cels Window]] to visualize, modify, and sort [[animation:cel|Cels]] within a [[animation:frame|Frame]].
+
+  * It is stateless
+  * It is a subclass of QGraphicsObject
+  * It shows a preview of the Cel
+  * It shows the name of the Cel
+  * It shows the resolution of the Cel
+  * It will emit a signal when it the clicked
+    * This signal will tell the [[widgets:celswindow|Cels window]] to make this CelWidget's [[animation:cel|Cel]] the current one
+
+===== TODO =====
+There a still a few things left undone:
+  * Need to add a "Delte Cel," button
+  * Need to add a "Reisze Cel," button
+  * Need to add a spinner/slider to adjust Cel opacity

@@ -1,0 +1,14 @@
+====== Drawing Widgets ======
+
+The Drawing widgets are a set of widgets that are used to paint pixels on top of the [[animation:cel|Cel]] objects.  They may also be used for visualizing the [[animation:cel|Cels]] and [[animation:frame|Frames]].
+
+===== Submodules =====
+  * [[widgets:drawing:tools|Tools]]
+    * [[widgets:drawing:tools:tool|Tool Interface]]
+    * [[widgets:drawing:tools:pen|Pen Tool]]
+    * [[widgets:drawing:tools:brush|Brush Tool]]
+    * [[widgets:drawing:tools:eraser|Eraser Tool]]
+    * [[widgets:drawing:tools:move|Move Tool]]
+
+===== Widgets =====
+  * [[widgets:drawing:canvas|Canvas]]

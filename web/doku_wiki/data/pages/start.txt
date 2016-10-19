@@ -1,0 +1,26 @@
+====== Blit Development Wiki ======
+
+===== What is Blit? =====
+Blit is the working title for a long and dangerous journey that Benjamin Summerton (Ben) has embarked on.  He has long hungered for a 2D Animation program that he liked, but didn't cost a crap-ton of money.  Blit is his solution to a bitmap based Animation suite.  It is built using C++ & Qt5.
+
+===== What is this Wiki for =====
+Mainly for anyone who is working on Blit to jot down notes about how things work.  I.e. what module is supposed to do what (and what it shouldn't do).
+
+===== Where to start =====
+  * See the [[blitapp|BlitApp]] module to begin with.
+  * [[philosophy|Philosophy]] is manditory reading.
+
+===== Modules =====
+  * [[animation|Animation]]
+  * [[widgets|Widgets]]
+    * [[widgets:timeline|Timeline Widgets]]
+    * [[widgets:drawing|Drawing Widgets]]
+      * [[widgets:drawing:tools|Drawing Tools]]
+    * [[widgets:colorchoosers|Color Chooser Widgets]]
+
+===== Concepts =====
+  * [[null|Null]] (not a NULL pointer)
+  * [[statefulness|Statefulness]]
+
+===== User Stuff =====
+  * [[hotkeys|Hot Keys]]

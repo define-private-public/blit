@@ -1,0 +1,65 @@
+digraph {
+	label="Class Heiarchy";
+
+	// What inherts what (clases)
+	QWidget_Tool -> QWidget;		// Not really an inheritance
+
+	subgraph cluster_animation {
+		label="Animation";
+		Cel -> QGraphicsObject;
+		Frame -> QGraphicsScene;
+		XSheet -> QObject;
+		Animation -> QObject;
+	}
+
+	subgraph cluster_widgets {
+		label="Unorganized Widgets";
+		BlitApp -> QMainWindow;
+		SpritesheetDialog -> QDialog;
+		AnimationPropertiesDialog -> QDialog;
+		TimelineWindow -> QWidget_Tool;
+		ToolsWindow -> QWidget_Tool;
+		CelsWindow -> QWidget_Tool;
+		CelWidget -> QGraphicsObject;
+		ColorFrame -> QFrame;
+		{SelfChangingColorFrame ClickableColorFrame} -> ColorFrame;
+		ColorPalette -> QWidget;
+		EditorContainer -> QWidget;	 
+		MenuBar -> QMenuBar;
+		StatusBar -> QStatusBar;
+		Toolbox -> QWidget;
+
+		// Timeline
+		subgraph cluster_timeline_widgets {
+			label="Timeline Widgets";
+			Timeline -> QWidget;
+			Cursor -> QGraphicsObject;
+			Ruler -> QGraphicsObject;
+			Tick -> QGraphicsObject;
+			TriangleMarker -> QGraphicsPolygonItem;
+		}
+
+		// color choosers
+		subgraph cluster_color_chooser_widgets {
+			label="Color Choosers";
+			ColorChooser -> QWidget;
+			RGBSlider -> ColorChooser;
+		}
+
+		// Drawing
+		subgraph cluster_drawing_widgets {
+			label="Drawing Widgets";
+			Canvas -> QGraphicsView;
+
+			// Drawing tools
+			subgraph cluster_drawing_tools {
+				label="Drawing Tools";
+				Tool -> QGraphicsObject;
+				{Pen Brush Eraser MoveTool} -> Tool;
+			}
+		}
+	}
+	
+
+}
+

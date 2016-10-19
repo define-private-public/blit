@@ -1,0 +1,10 @@
+====== Eraser Tool ======
+
+The Eraser tool is a [[widgets:drawing:tools|Drawing Tool]] that implements the [[widgets:drawing:tools:tool|Tool Interface]].  It allows the user to eraser pixels from the current [[animation:cel|Cel]].
+
+  * It is stateful
+    * It relies on [[:blitapp|BlitApp]] to get the current [[animation:cel|Cel]] and [[widgets:drawing:canvas|Canvas]]
+  * There are two QSpinBoxes to adjust parameters
+    * One for thickness
+    * Another for its intensity (i.e. how much should it erase in one stroke)
+  * It erases "hard edges"

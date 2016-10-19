@@ -1,0 +1,23 @@
+====== Widgets ======
+
+This module is a collection of custom made widgets for the Blit application.  Most of the widgets should be sorted into smaller submodules (.e.g [[widgets:timeline|Timeline Widgets]]), but there are a few here that aren't sorted.
+
+===== Sub-Modules =====
+  * [[widgets:timeline|Timeline]]
+  * [[widgets:drawing|Drawing]]
+  * [[widgets:colorchoosers|Color Choosers]]
+
+===== Unsorted =====
+  * [[widgets:colorframe|Color Frame]]
+    * [[widgets:colorframe#self_changing_color_frame|Self Changing Color Frame]]
+    * [[widgets:colorframe#clickable_color_frame|Clickable Color Frame]]
+  * [[widgets:toolbox|Toolbox]]
+  * [[widgets:editorcontainer|Editor Container]]
+  * [[widgets:menubar|Menu Bar]]
+  * [[widgets:statusbar|Status Bar]]
+  * [[widgets:timelinewindow|Timeline Window]]
+  * [[widgets:toolswindow|Tools Window]]
+  * [[widgets:celwidget|Cel Widget]]
+  * [[widgets:celswindow|Cels Window]]
+  * [[widgets:animationproperties|Animation Properties Dialog]]
+  * [[widgets:colorpalette|Color Palette]]

@@ -1,0 +1,6 @@
+====== BlitApp ======
+
+BlitApp is the main class/module in the Blit application.  It can be considered to be the "god," module.  It is a singleton (or should be).  There are some modules (like [[animation:cel|Cel]]) which depend upon it be instatiated.
+
+===== Important Notes =====
+  * Is a subclass of QMainWindow

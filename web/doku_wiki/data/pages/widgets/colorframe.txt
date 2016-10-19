@@ -1,0 +1,19 @@
+====== Color Frame ======
+
+ColorFrame is a widget that represents one colour.  It is commonly found in [[colorchoosers|Color Chooser]] widgets.
+
+  * It is a sublcass of QFrame
+  * It is stateless
+  * The colour it is representing can have an alpha transparency, if it does, it will show a checkered background
+  * When the colour is changed, it will emit a signal
+
+
+
+===== Self Changing Color Frame =====
+
+There is also a sublcass of ColorFrame called SelfChangingColorFrame.  It has all the same functionality of ColorFrame, except that when you double click it, it will bring up a dialog window to select a color.  Used in some of the [[:widgets:colorchoosers|Color Chooser Widgets]].
+
+
+===== Clickable Color Frame =====
+
+Another subclass of ColorFrame is ClickableColorFrame.  Same functionality as ColorFrame, but will emit a signals when the user clicks it.  It can change border color, but the code must be uncommented in the source file .Used in the [[:widgets:colorpalette|Color Palette Widget]].

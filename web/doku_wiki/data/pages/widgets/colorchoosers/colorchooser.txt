@@ -1,0 +1,8 @@
+====== Color Chooser Interface ======
+
+The ColorChooser interface is a class that all [[.:|Color Chooser Widgets]] need to implement.
+
+  * It sublcasses QWidget
+  * It is stateless
+  * It is a pure virtual class
+  * It contains methods for settting, getting, and emitting the currently selected color

@@ -1,0 +1,60 @@
+digraph {
+	// Import notes of uses for each class
+	label="Uses";
+
+	// Animation
+	subgraph cluster_animation {
+		label="Animation";
+		Animation -> XSheet;
+		XSheet -> Frame;
+		Frame -> Cel;
+		Frame -> BlitApp[label="only on image rendering for frame size"]
+		Cel -> QImage;
+		Cel -> BlitApp[label="only on new creation"];
+	}
+
+	subgraph cluster_unorganized_widgets {
+		label="Unorganized Widgets";
+		BlitApp -> {Animation XSheet Frame Cel Canvas EditorContainer StatusBar MenuBar TimelineWindow ToolsWindow CelsWindow Tool Toolbox AnimationPropertiesDialog ColorPalette};
+		MenuBar -> BlitApp;
+		StatusBar -> BlitApp;
+		EditorContainer -> {BlitApp Canvas};
+		Spritesheet -> {Animation SelfChangingColorFrame};
+		AnimationPropertiesDialog -> Animation;
+		TimelineWindow -> {BlitApp Timeline Frame Tick Cursor};
+		ToolsWindow -> {BlitApp Toolbox ColorChooser RGBSlider ColorPalette ColorFrame};
+		CelsWindow -> {BlitApp Frame Cel CelWidget};
+		Toolbox -> Tool;
+		ColorPalette -> ClickableColorFrame;
+		CelWidget -> {Cel CelsWindow};
+
+		subgraph cluster_color_choosers {
+			label="Color Choosers";
+			ColorChooser;
+			RGBSlider;
+		}
+
+		subgraph cluster_timeline_widgets {
+			label="Timeline Widgets";
+			Timeline -> {Frame XSheet Tick Ruler Cursor TriangleMarker};
+			Tick -> {Frame BlitApp};
+			Cursor -> {Frame Tick BlitApp};
+			TriangleMarker;
+			Ruler;
+		}
+
+		subgraph cluster_drawing_widgets {
+			label="Drawing Widgets";
+			Canvas -> {Frame Cel BlitApp};
+
+			subgraph cluster_drawing_tools {
+				label="Drawing Tools";
+				Tool;
+				Pen -> {Canvas Cel BlitApp};
+				Brush -> {Canvas Cel BlitApp};
+				Eraser -> {Canvas Cel BlitApp};
+				Movetool -> {Canvas BlitApp};
+			}
+		}
+	}
+}

@@ -1,0 +1,26 @@
+This is a list features that I'd love to add, but shouldn't focus on yet:
+--------------------------------------------------------------------------------
+ * "Regions," e.g. you can select a region of pixels in in multiple frames, and
+   give them the same I.D.  If you say, change the colors of one set of pixels,
+   it will change them in all of the frames.  Need to see if this feature is
+   practical/useful or not.
+ * Camera/Pencil test mode.  For my bros at SoFA who can't use FlipBook anymore.
+   All it will do is open up a camera (if there is one found) then allow people
+   to take pictures.  Maybe add blending like "add," and "multiply?"  Make sure
+   this isn't part of the main branch, just a side one that just keeps on
+   merging.
+ * Hue color palatte shift.  Might be a bit redundant, but select a few differnt
+   colors in a palatte and shift their hues together.
+ * Scale export.  Scale an image upon export (possibly import too)
+ * Custom tool tutorial.  Make this fun.
+ * Custom background.  For example, instead of the standard checkerboard for
+   transparency, allows for an image, color, or pattern.
+ * Wheel color chooser.  Choose colors from a wheel
+ * GTK color chooser.  Choose colors like that of GTK's color choosing widget
+   - Sort of using this already, but a mean a more compact one w/ out a dialog
+ * Different color modes (this is combined with the "master palatte," thing
+ * Color scheme picker (i.e. analogous)
+ * Hot-Keys:
+   - E.g. : "?" brings up hotkeys.
+ * When adding a new frame, the tick will fade from a color
+ * Advanced Color Management (e.g. ICC profiles)

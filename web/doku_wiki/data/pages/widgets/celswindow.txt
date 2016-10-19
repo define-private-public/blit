@@ -1,0 +1,8 @@
+====== Cels Window ======
+The CelsWindow is a widget that contains [[widgets:celwidget|Cel Widgets]].  It contains methods to select/raise/lower/copy the current [[animation:cel|Cel]] in the current [[animation:frame|Frame]].  It has the Qt::Tool flag set.
+
+  * It is stateful
+    * It depends on [[:blitapp|BlitApp]] for file saving, setting the current Cel, getting the current Frame, and many other signals & slots
+  * It is a sublcass of QWidget
+  * It uses a QGraphicsScene/QGraphicsView combo to display the [[widgets:celWidget|Cel Widgets]]
+  * The widgets are enabled/disabled depending if the currently set Frame is a NULL pointer or not.

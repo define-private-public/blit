@@ -1,0 +1,11 @@
+project = Blit
+description = A 2D Animation Tool
+
+headerdirs = ../src
+sourcedirs = ../src
+headers.fileextensions = "*.h"
+sources.fileextensions = "*.cpp"
+
+outputdir = blit_qdoc
+outputformats = HTML
+

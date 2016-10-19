@@ -1,0 +1,10 @@
+====== Hot Keys ======
+Below are a collection of default hotkeys in Blit.
+
+  * Qt::Key_J -- Goto beginning of the animation
+  * Qt::Key_K -- Play/Pause animation
+  * Qt::Key_L -- Goto end of the animation
+  * Qt::Key_Comma -- Move one Frame left
+  * Qt::key_Period -- Move one Frame right
+  * Qt::Key_Minus -- Hold -= 1
+  * Qt::Key_Equals -- Hold += 1

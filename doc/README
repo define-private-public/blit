@@ -1,0 +1,9 @@
+This is where documentation is located for application use stuff and technology
+surrounding blit; or at least is should be here.  If you need to read
+implementation stuff, check the source code.
+
+Source code documentation can be generated either via Qt's `qdoc` tool or
+Doxygen.  The later looks much nicer.
+
+There are few Graphviz files (the ones that end in `.gv`) that visualize the how
+some of the classes are used in relation to others.

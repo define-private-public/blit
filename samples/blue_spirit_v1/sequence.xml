@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<animation version="1">
+	<name>Blau Geist (GIF)</name>
+	<created format="unix_timestamp">0</created>
+	<updated format="unix_timestamp">1421785991</updated>
+	<width>29</width>
+	<height>29</height>
+	<xsheet>
+		<fps>50</fps>
+		<seq_length>38</seq_length>
+		<num_frames>8</num_frames>
+		<frame number="1">
+			<name>1</name>
+			<hold>8</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="b3faae86-8f32-47e2-8651-50cc49955f1c">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="9">
+			<name>2</name>
+			<hold>6</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="fff018d6-633c-486d-aa8c-cf9be7c0d19e">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="15">
+			<name>3</name>
+			<hold>4</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="eff58580-d2bd-4d0b-8f9e-2fbb3236878f">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="19">
+			<name>4</name>
+			<hold>4</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="227bd4d8-668d-4dd9-8018-940dd1d39f09">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="23">
+			<name>5</name>
+			<hold>2</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="e06f5662-d74e-4713-8ac5-b9ee03c09940">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="25">
+			<name>6</name>
+			<hold>4</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="220ae4e2-7065-4fb6-95d9-baaffaa504a7">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="29">
+			<name>7</name>
+			<hold>4</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="e790c0ab-a827-4646-937e-254d32e09efa">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+		<frame number="33">
+			<name>8</name>
+			<hold>6</hold>
+			<num_cels>1</num_cels>
+			<cel uuid="9e097342-f2d6-49be-8695-b6204769e7ff">
+				<x>0</x>
+				<y>0</y>
+				<width>29</width>
+				<height>29</height>
+			</cel>
+		</frame>
+	</xsheet>
+</animation>

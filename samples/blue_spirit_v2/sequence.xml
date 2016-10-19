@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation version="2">
+	<name>Blau Geist (GIF)</name>
+	<created format="unix_timestamp">0</created>
+	<updated format="unix_timestamp">1421785991</updated>
+	<width>29</width>
+	<height>29</height>
+	<cels count="8">
+		<cel type="PNG" name="b3faae86-8f32-47e2-8651-50cc49955f1c" width="29" height="29"/>
+		<cel type="PNG" name="fff018d6-633c-486d-aa8c-cf9be7c0d19e" width="29" height="29"/>
+		<cel type="PNG" name="eff58580-d2bd-4d0b-8f9e-2fbb3236878f" width="29" height="29"/>
+		<cel type="PNG" name="227bd4d8-668d-4dd9-8018-940dd1d39f09" width="29" height="29"/>
+		<cel type="PNG" name="e06f5662-d74e-4713-8ac5-b9ee03c09940" width="29" height="29"/>
+		<cel type="PNG" name="220ae4e2-7065-4fb6-95d9-baaffaa504a7" width="29" height="29"/>
+		<cel type="PNG" name="e790c0ab-a827-4646-937e-254d32e09efa" width="29" height="29"/>
+		<cel type="PNG" name="9e097342-f2d6-49be-8695-b6204769e7ff" width="29" height="29"/>
+	</cels>
+	<frames count="8">
+		<frame name="1">
+			<staged_cel cel="b3faae86-8f32-47e2-8651-50cc49955f1c" x="0" y="0"/>
+		</frame>
+		<frame name="2">
+			<staged_cel cel="fff018d6-633c-486d-aa8c-cf9be7c0d19e" x="0" y="0"/>
+		</frame>
+		<frame name="3">
+			<staged_cel cel="eff58580-d2bd-4d0b-8f9e-2fbb3236878f" x="0" y="0"/>
+		</frame>
+		<frame name="4">
+			<staged_cel cel="227bd4d8-668d-4dd9-8018-940dd1d39f09" x="0" y="0"/>
+		</frame>
+		<frame name="5">
+			<staged_cel cel="e06f5662-d74e-4713-8ac5-b9ee03c09940" x="0" y="0"/>
+		</frame>
+		<frame name="6">
+			<staged_cel cel="220ae4e2-7065-4fb6-95d9-baaffaa504a7" x="0" y="0"/>
+		</frame>
+		<frame name="7">
+			<staged_cel cel="e790c0ab-a827-4646-937e-254d32e09efa" x="0" y="0"/>
+		</frame>
+		<frame name="8">
+			<staged_cel cel="9e097342-f2d6-49be-8695-b6204769e7ff" x="0" y="0"/>
+		</frame>
+	</frames>
+	<xsheet fps="50" seq_length="38">
+		<plane number="1" count="8">
+			<timed_frame frame="1" number="1" hold="8"/>
+			<timed_frame frame="2" number="9" hold="6"/>
+			<timed_frame frame="3" number="15" hold="4"/>
+			<timed_frame frame="4" number="19" hold="4"/>
+			<timed_frame frame="5" number="23" hold="2"/>
+			<timed_frame frame="6" number="25" hold="4"/>
+			<timed_frame frame="7" number="29" hold="4"/>
+			<timed_frame frame="8" number="33" hold="8"/>
+		</plane>
+	</xsheet>
+</animation>

@@ -1,0 +1,7 @@
+====== Color Palette ======
+
+The Color Palette widget's purpose to to save a bunch of colors (a.k.a swatches) for the user.  It can be though of as a [[widgets:colorchoosers|Color Chooser]] widget.  Colors are saved in the same directory as the rest of the files.
+
+  * It is stateless
+  * It is a subclass of QWidget
+  * It contains a bunch of [[widgets:colorframe#clickable_color_frame|Clickable Color Frame]] instances to act as the swatches

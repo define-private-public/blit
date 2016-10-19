@@ -1,0 +1,9 @@
+====== Animation Module ======
+
+The job of the Animation Module is to manage all of the animation related classes.  Classes contained in this module should only act as Models.  It really is the "heart," of the application.
+
+===== Class list =====
+  * [[animation:cel|Cel]]
+  * [[animation:frame|Frame]]
+  * [[animation:xsheet|XSheet]]
+  * [[animation:animation|Animation]]

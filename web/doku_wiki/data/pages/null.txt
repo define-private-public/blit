@@ -1,0 +1,5 @@
+====== Null ======
+
+The concept of a "Null object," is not the same as a NULL pointer to an object.  This is used in the case that we need a physical object to work with, but can't consider it "full," yet.  Many objects such as [[animation:cel|Cel]] and [[animation:xsheet|XSheet]] have certain quantifiers that determine if the object is Null or not.
+
+This construct is borrowed from Qt, where some of their classes (such as QImage), even though instatiated are considered Null.

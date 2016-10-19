@@ -1,0 +1,14 @@
+====== Timeline ======
+
+The Timeline widget is a visualization of the [[:animation:xsheet|XSheet]] class.  The user can use this widget to move [[tick|Ticks]] to rearange the order of the [[:animation:frame|Frames]] in an animation.
+
+  * It is a subclass of QWidget
+    * It contains both an internal QGraphicsScene and QGraphicsView
+  * Itself is a stateless widget, but any items its scene contains may be stateful
+  * Inside of its scene there are [[tick|Ticks]], [[ruler|Rulers]], [[cursor|Cursor]], and [[trianglemarker|Triangle Markers]]
+  * It uses an ordered list of Ticks (by [[:animation:frame|Frame]] number)
+    * Internally there is a QHash for speed
+
+
+===== TODO =====
+Later on another visualization of the [[:animation:xsheet|XSheet]] class will be made.  This one though will be thumbnail based.

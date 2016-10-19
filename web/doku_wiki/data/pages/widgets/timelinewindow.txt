@@ -1,0 +1,12 @@
+====== Timeline Window ======
+
+The TimelineWindow widget contains a set of widgets that are used to display and manipulate instances of the [[animation:frame|Frame]] and [[animation:XSheet|XSheet]] classes  (e.g. FPS value, Frame holds, etc).  It also contains widgets such as [[widgets:timeline:timeline|Timeline]] to switch the current Frame in the [[editorcontainer|Editing Window]].
+
+Also contains playback widgets.
+
+  * It is a sublcass of QWidget
+    * It has the Qt::Tool window flag set.
+  * It is stateful
+    * It depends on [[:blitapp|BlitApp]] to grab the currently set [[animation:xsheet|XSheet]], as well as for the "curFrameChanged" signal
+    * Checking to see if the current [[animation:animation|Animation]] is [[:null|Null]]
+    * Grabbing the currently set [[animation:frame|Frame]]

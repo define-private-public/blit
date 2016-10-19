@@ -1,0 +1,3 @@
+====== RGB Slider ======
+
+RGBSlider is an implementation of the [[colorchooser|Color Chooser interface]], of the [[.:|Color Chooser widgets]].  It uses a set of QSliders (and QSpinBoxes) to choose a color.  It includes a QLineEdit to enter in a hex code color (or SVG named color, supported by QColor).  It also supports an alpha channel slider/spinner.

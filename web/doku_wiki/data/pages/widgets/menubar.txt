@@ -1,0 +1,9 @@
+====== Menu Bar ======
+
+The MenuBar widget is a QMenuBar for the [[:blitapp|BlitApp]] QMainWindow.  It's mainly in its own file/class for organizational purposes.
+
+  * It is a sublcass of QMenuBar
+  * It is stateful
+    * [[:blitapp|BlitApp]] must be its parent widget
+    * Most of its QActions signals correspond to BlitApp slots
+    * Some of its other QActions may depend on other classes (e.g. the "Show Grid," action for the [[widgets:drawing:canvas|Canvas widget]]

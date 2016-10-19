@@ -1,0 +1,154 @@
+Blit File Format Version 1:
+---------------------------
+
+Blit will use it own file format for the animations.  There is no extension for
+the current version (1).  Everything will be saved into a directroy that is the
+name of the project.  Inside the folder, there will be a bunch of 32-Bit PNGs
+and one XML file.  The PNGs are the images for the PNGCels.  The XML file
+contains all of the informaton regarding the animation sequence.
+
+
+
+The Cel class will have the following structure:
+ - a type (e.g. "PNG")
+ - a name, should be a unique non-empty string
+   - TODO add in note if it's dynamically allocated or not
+ - Width and Height (cache of the cels's resolution, in pixels).
+
+ There can me many differnt types of Cels (e.g. PNG), each with their own
+ underlying implementation.  For example the PNGCel will have an underlying
+ 32-bit premultiplied PNG with the same name as the name field.
+
+ Example:
+ --------
+ <cel type="PNG" name="cel-3c5a" width="35" height="80" />
+ --------
+
+
+
+The CelRef class will have the foloowing strucutre:
+ - cel, a non-empty string that points to a Cel's name
+ - x & y, integers that contain the placement of the Cel/CelRef inside a Frame
+
+ Example:
+ --------
+ <staged_cel cel="cel-3c5a" x="5" y="-2" />
+ --------
+
+
+
+The Frame class has the following structure:
+ - Name, a non-empty unique string
+ - A list of CelRef objects, they should be in order:
+   - CelRef at layer 0 (topmost) should be at the front
+   - CelRef at layer N (bottommost) should be at the end
+
+ Example:
+ --------
+ <frame name="f2">
+   <staged_cel cel="glance-1" x="0" y="0" />
+  <staged_cel cel="cel-3c5a" x="5" y="-2" />
+ </frame>
+ --------
+
+
+
+The TimedFrame class has the following structure:
+ - Frame, a non-empty string that correclates to a Frame object
+ - Number, a positive integer that represents the frame number of this TimedFrame
+ - Hold, a positive integer that represents how long to hold out this TimedFrame
+   for
+
+ Example:
+ --------
+ <timed_frame frame="f2" number="3" hold="2" />
+ --------
+
+
+
+The XSheet class has the following structure:
+ - FPS, a positive integer for the Frames Per Second this animation should be
+   shown at
+ - Sequence Length, A Cache of how long the sequence is
+ - Plane, a collection of TimedFrames is a plane (currently there is one one)
+   - number, an integer that specifies which order the layer is
+   - count, a cache of the FrameRef Count
+
+  Example:
+  --------
+  <xsheet fps="50" seq_length="8">
+    <plane number="1" count="2">
+      <timed_frame frame="f1" number="1" hold="4" />
+      <timed_frame frame="f2" number="5" hold="4" />
+    </plane>
+  </xsheet>
+  --------
+
+
+
+The Animation class is the sort of "base structure" for the file format.  It
+contains the following fields:
+ - Version, an integer that signifies which version this XML file is
+ - Name, A string (possibly empty) given to the Animaiton
+ - created, a unix timestamp of when the Animation was created
+ - updated, a unix timestamp of when the Animation was last changed
+ - width & height, positive integers that signify the frame size for the
+   animation.
+ - cels a list of Cel objects
+   - count, a cache of how many Cels there are
+ - frames a list of Frame objects
+   - count, a cache of how many Frames there are
+ - xhseet, The Exposure Sheet object (see above)
+
+  Example:
+  --------
+  <animation version="2">
+    <name>Magical Unicorn Adventure!</name>
+    <created format="unix_timestamp">1420309397</created>
+    <updated format="unix_timestamp">1420327082</updated>
+    <width>800</width>
+    <height>480</height>
+    <cels count="8">
+      ...
+    </cels>
+    <frames count="8">
+      ...
+    </frames>
+    <xsheet>
+      ...
+    </xsheet>
+  </animation>
+  --------
+
+
+
+--------------------------------------------------------------------------------
+
+A file called "palette.xml" contains the color palette of the working Blit File.
+It is very simple.  There is a root node called <palette> and an ordered list of
+<color> tags, where the color value in stored in the AARRGGBB format (upper case
+hex strings).  The version number should be the same as the current Blit File
+Format number.  See below for an example.
+
+  Example:
+  --------
+  <palette version="2">
+    <color value="FF000000" />
+	<color value="FFFFFFFF" />
+    <color value="FFFF0000" />
+	<color value="FF00FF00" />
+	<color value="FF0000FF" />
+	<color value="FF00FFFF" />
+	<color value="FFFF00FF" />
+	<color value="FFFFFF00" />
+  </palette>
+  --------
+
+
+
+--------------------------------------------------------------------------------
+
+If you are confused on how this file format works, it would be best to consult
+one of the samples in the `samples/` directory of this project.
+
+

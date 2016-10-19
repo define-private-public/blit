@@ -1,0 +1,8 @@
+====== Color Chooser Widgets ======
+
+The Color Chooser widgets have the tasking of helping the user choose color.  Each widget here implements the [[widgets:colorchoosers:colorchooser|Color Chooser interface]].
+
+===== Choosers =====
+  * [[widgets:colorchoosers:rgbslider|RGB Slider]]
+  * [[widgets:colorchoosers:hslslider|HSL Slider]]  (TODO implement)
+  * [[widgets:colorchoosers:hsvslider|HSV Slider]]  (TODO implement)

@@ -1,0 +1,14 @@
+====== Tool (Interface) ======
+
+Tool is an abstract class that is used as an interface to make pluggable editing tools for blit.  It is part of the [[widgets:drawing:tools|Drawing Tools]], but not necessarly a tool itself.  Drawing tools such as the [[widgets:drawing:tools:pen|Pen Tool]] sublcass this, but there are other tools like the [[widgets:drawing:tools:move|Move Tool]] that are used to move around objects.
+
+  * It's a subclass of QObject
+  * It is declared as a Q_INTERFACE, but there currently are not instantiations of it as plugins
+    * It is planned to have every tools as a plugin though
+  * You must implement the "name()" "desc()" and "icon()" methods in your sublcass
+  * The "options()" method doesn't need to be implemented, but it is meant to be an area where you can put other widgets for the user to modify tool parameters
+    * It should either return a NULL pointer, or a pointer to a dynamically allocated QWidget
+    * If you return a QWidget pointer, make sure that the widget doesn't have a parent class
+  * You must override the "onMouse*()" methods to have your tool really do something
+    * Make sure to use the "scenePos()" method from the "event" paramter to get position data in terms of the [[widgets:drawing:canvas|Canvas]]
+  * Look at the source of the other tools (e.g. [[widgets:drawing:tools:pen|Pen]] and [[widgets:drawing:tools:move|Move]]) if you want to implement your own.  Most of them follow a similar pattern.

@@ -1,0 +1,12 @@
+====== XSheet ======
+
+//Pronounced Exposure Sheet//
+ XSheet is a collection of [[frame|Frame]] objects.  It's main job to organize all of the Frame objects in to a coherent animation sequence (i.e. timing and spacing).
+
+  * It is a sublcass of QObject
+  * It is stateless
+  * Contains data for the animation sequence like "frames per second"
+  * An XSheet is considered Null if it doesn't contain any frames
+
+=== See Also ===
+  * [[widgets:timeline:timeline|Timeline]]

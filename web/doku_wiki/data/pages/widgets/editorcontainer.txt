@@ -1,0 +1,8 @@
+====== Editor Container ======
+
+The EditorContainer is the central widget of [[:blitapp|BlitApp]]'s QMainWindow.  It contains widgets like the [[widgets:drawing:canvas|Canvas]] and Side Rulers (TODO).
+
+  * It is a subclass of QWidget
+  * It is stateful
+    * [[:blitapp|BlitApp]] must be its parent widget
+  * It's partially created for organizational purposes, but required since QMainWindow can only handle one central widget at a time

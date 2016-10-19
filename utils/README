@@ -1,0 +1,6 @@
+This folder contained some utilties to make development and use of blit a bit
+easier.  There are two template C++ files.  There are two Python scripts (that
+require PyQt5).  One would be able to convert a .gif to a Blit Animation (it's
+kind of defunt now though...).  The other was a script to upgrade Blit
+Animations with the file format v1 over to v2.
+

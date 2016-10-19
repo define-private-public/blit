@@ -1,0 +1,17 @@
+====== Frame ======
+
+A Frame is a collection of [[cel|Cel]] objects.  It represents one Frame of animation in the sequence.
+
+  * It is a sublcass of QGraphicsScene
+  * A Frame should both have a number (a positive integer) and a hold (positive integer)
+    * The frame number and hold values are relative to the other Frame objects stored in the [[animation:xsheet|XSheet]]
+  * While the maximum size of the Frame can be arbitrary, what the final rendered scene will look like is dependant upon what the current frame size set in the [[:blitapp|BlitApp]] is set to
+    * It's stateless for the most part, but can be stateful when rendering
+  * Layering of the Cels runs by index where the lower the index number, the "more ontop," it is of other Cels
+  * Just like Cels, they can be marked active and inactive.
+  * Frames can have other meta-data like a name.
+  * It emits a ton of signals.
+    * Some of the more important ones (i.e. for drawing) are passed up to the [[:widgets:drawing:canvas|Canvas]] widget, wich intern emits those signals.
+
+=== See Also ===
+  * [[widgets:timeline:tick|Tick]]

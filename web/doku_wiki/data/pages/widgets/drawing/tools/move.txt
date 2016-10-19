@@ -1,0 +1,6 @@
+====== Move Tool ======
+
+The Move tool is a [[widgets:drawing:tools|Drawing Tool]] that implements the [[widgets:drawing:tools:tool|Tool Interface]].  It allows the user to move around [[animation:cel|Cels]] in the current [[animation:frame|Frame]].
+
+  * It is stateful
+    * It relies on [[:blitapp|BlitApp]] to get the current [[animation:cel|Cel]]

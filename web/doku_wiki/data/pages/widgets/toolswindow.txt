@@ -1,0 +1,5 @@
+====== Tools Window ======
+
+The Tools Window is a custom widget that is used to organize/contains widgets such as the [[widgets:drawing:tools|Drawing Tools]], [[widgets:colorchoosers|Color Chooser Widgets]], and more (to come).  It is a subclass of QWidget, but it has the Qt::Tool window flag set.
+
+  * It is stateless, but requires [[:blitapp|BlitApp]] to be the parent widget

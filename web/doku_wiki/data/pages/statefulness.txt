@@ -1,0 +1,7 @@
+====== Statefulness ======
+
+Statefulness is used to determine if an object/class is dependant upon [[blitapp|BlitApp]] or not.  An object is considered stateful if the object needs BlitApp to function.  It is considered stateless if it doesn't rquire BlitApp at all.
+
+For example, the [[animation:cel|Cel]] class is stateful since it depends on BlitApp to tell it where to load the PNG files.  While the [[widgets:colorframe|Color Frame widget]] is stateless since it doesn't need BlitApp at all.
+
+The easiest way to tell if a class/object is stateful or not is to read the .cpp source file and see if **blitapp.h** is included at the top.

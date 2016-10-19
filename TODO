@@ -1,0 +1,51 @@
+TODO:
+-----
+ * Resize Tool
+
+
+Next TODO Goals:
+----------------
+ * TextCel for the Text tool
+ * BrushTool (it's a bit of a time sink, do it later)
+ * OpenGL rendering (use a hardware renderer instead of software)
+ * Timeline Widget overhaul
+   - remove as much dependancy on BlitApp
+   - Tick -> TimedFrameItem
+
+
+Next Next TODO Goals:
+---------------------
+ * HSV/HSL sliders Color choosers
+ * Camera capture
+ * New version checking feature upon startup, make sure it doesn't make a fuss
+   about a bad connection.  Couple this with a notification area or popup.
+ * For Tools, make sure that there is a list of "supported versions," so that
+   there aren't any incompatability issues
+ * Research Qt's Undo Framework
+ * Skip Qt's built in Toolbar, make our own.
+ * Work on thumb timeline
+   - In fact, might also want to fixup regualr Timeline/Tick relationship
+ * Use DockWidgets (if it works for other platforms)
+ * CIELab Color chooser
+   - Don't forget radio CIELab
+ * Timeline controls
+   -  E.g., buttons to swap between frames
+ * better controls for moving frames and adjusting holds (i.e. no spinner)
+   - Also maybe allow blank spots in the XSheet
+   - Allow the user to "stretch," frames
+   - Left click menu on Timeline widget
+ * Ticks will display info in a Tooltip on hover
+   - Or in another window called "Frame Info"
+   - Get rid of the "curSelected," static, the Tick should be stateless
+     - It's a real obsticle to progress
+	 - Maybe the Timeline widget should handle this
+   - Ticks as have a pointer to the Timeline widget itself (it's parent)
+   - Ticks are a visualization of FrameRef
+ * Move the Color Palette widget to a QGraphicsView/Scene combo
+   - Might be necessary to research proxy widgets
+   - Allow for the user to move colors around
+     - Not just a grid, maybe free form?
+ * Multi planes
+ * Modularize BlitApp
+ * User can organize swatches
+

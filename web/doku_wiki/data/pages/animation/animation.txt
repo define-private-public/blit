@@ -1,0 +1,10 @@
+====== Animation ======
+
+Animation is a simple container class for [[xsheet|XSheet]] and some data about the sequence.  Mainly it's for data that doesn't really belong in the exposure sheet.
+
+
+  * It is a sublcass of QObject
+  * It is stateless
+  * It contains data like the current dimensions each [[frame|Frame]] should be rendered at (i.e. the "frameSize")
+  * Meta-data like the creation date, the last edited date, and the name of the animation
+  * The Animation is considered Null if its containing XSheet is considered Null as well.

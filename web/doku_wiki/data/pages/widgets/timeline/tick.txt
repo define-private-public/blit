@@ -1,0 +1,10 @@
+====== Tick ======
+
+A Tick is a visualization of a [[:animation:frame|Frame]] object.
+
+  * It is a sublcass of QGraphicsObject
+  * It is only to be used in the [[timeline|Timeline]] widget
+  * The class is stateful
+    * This is because there is a static variable that contains a pointer to the currently selected Tick
+    * Inside the method "select()," also has a reference to [[:blitapp|BlitApp]]
+    * Inside the method "mousePressEvent()," on Left click, it will stop playing the Animaiton.
