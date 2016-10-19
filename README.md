@@ -1,5 +1,10 @@
 Blit - A Bitmap Based Animation Tool
 ====================================
+
+![The Main Interface](https://gitlab.com/define-private-public/blit/raw/master/web/images/screenshot-main-window.png)
+
+![The Spritsheet Exporter](https://gitlab.com/define-private-public/blit/raw/master/web/images/screenshot-spritesheet-exporter.png)
+
 Project site: https://gitlab.com/define-private-public/blit
 
 Doxygen source docs: http://blit.gitlab.io/SourceDocs/index.html
