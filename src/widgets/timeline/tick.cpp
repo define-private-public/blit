@@ -97,7 +97,7 @@ void Tick::mouseReleaseEvent(QGraphicsSceneMouseEvent *event) {
 
 
 void Tick::mouseMoveEvent(QGraphicsSceneMouseEvent *event) {
-    if (!_moving && (abs(event->scenePos().x() - _firstSP.x()) >= TICK_WIDTH)) {
+    if (!_moving && (qAbs(event->scenePos().x() - _firstSP.x()) >= TICK_WIDTH)) {
         // If the Tick isn't currently moving and the mouse have moved at least one Tick's width, start 
         // the moving process
         _moving = true;
