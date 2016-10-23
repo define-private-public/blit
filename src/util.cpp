@@ -11,10 +11,10 @@
 #include <QImage>
 #include <QDebug>
 
-
+/*!
+    Looks at a QUuid, strings out the brackets, and puts it out as a QString.
+*/
 QString util::stripUUID(QUuid uuid) {
-    // Looks at a QUuid, strings out the brackets, and puts it out as a QString.  This is done mainly to
-    // save the QImages
     QString str(uuid.toString());
     str.remove("{");
     str.remove("}");
@@ -22,15 +22,18 @@ QString util::stripUUID(QUuid uuid) {
 }
 
 
-QString util::mkUUIDStr(int numChars) {
-    // Makes a UUID String.  \a numChars is the number of characters to return; dashes are not counted
-    // but are included in the resulting string.  Supplying zero or less will just give you an empty
-    // string.  If numChars is greater than 32, nothing extra will happen.
-    // e.g.:
-    //  numChars=8   ->  43e4ba02
-    //  numChars=12  ->  9b03ddf6-88c5
-    //
+/*!
+    Makes a UUID String.  \a numChars is the number of characters to return; dashes are not counted
+    but are included in the resulting string.  Supplying zero or less will just give you an empty
+    string.  If numChars is greater than 32, nothing extra will happen.
 
+    e.g.:
+    \code
+     numChars=8   ->  43e4ba02
+     numChars=12  ->  9b03ddf6-88c5
+    \endcode
+*/
+QString util::mkUUIDStr(int numChars) {
     // First get a uuid as a stripped string
     QString uuid = util::stripUUID(QUuid::createUuid());
 
@@ -54,9 +57,11 @@ QString util::mkUUIDStr(int numChars) {
 }
 
 
+/*!
+    Makes a blank image (filled with transparency), of the size supplied.  Image return will be in the
+    format of ARGB_32_Premulitiplied
+*/
 QImage util::mkBlankImage(QSize size) {
-    // Makes a blank image (filled with transparency), of the size supplied.  Image return will be in the
-    // format of ARGB_32_Premulitiplied
     QImage img(size, QImage::Format_ARGB32_Premultiplied);
     
     if (img.isNull()) {
@@ -69,8 +74,11 @@ QImage util::mkBlankImage(QSize size) {
 }
 
 
+/*!
+    Produces the inverse of another color based on the sRGB colorpsace.
+    Leaves alpha value alone.
+*/
 QColor util::invert(QColor clr) {
-    // Produces the inverse of another color.  Leaves alpha value alone.
     clr.setRed(0xFF - clr.red());
     clr.setGreen(0xFF - clr.green());
     clr.setBlue(0xFF - clr.blue());
@@ -78,16 +86,20 @@ QColor util::invert(QColor clr) {
 }
 
 
+/*!
+    Turns a QSize into a QString, with the format of "<width> x <height".  e.g. "3 x 2"
+*/
 QString util::sizeToStr(QSize size) {
     return QString::number(size.width()) + " x " + QString::number(size.height());
 }
 
 
+/*!
+    Uses Bresenham's line algorithm, this will return a list of (integer) points
+    that are used to construct the line between the two points.  Implementation based
+    of of the one on Rosetta Code's wiki page.
+*/
 QList<QPoint> math::bresenhamLinePoints(qreal ax, qreal ay, qreal bx, qreal by) {
-    // Uses Bresenham's line algorithm, this will return a list of (integer) points
-    // that are used to construct the line between the two points.  Implementation based
-    // of of the one on Rosetta Code's wiki page.
-
     // Variables
     QList<QPoint> points;
 
@@ -134,8 +146,10 @@ QList<QPoint> math::bresenhamLinePoints(qreal ax, qreal ay, qreal bx, qreal by) 
 }
 
 
+/*!
+    Overloaded convienience funciton for the QPointF math::bresenhamLinePoints() function.
+*/
 QList<QPoint> math::bresenhamLinePoints(QPointF a, QPointF b) {
-    // Overloaded convienience funciton for the QPointF math::bresenhamLinePoints() function
     return math::bresenhamLinePoints(a.x(), a.y(), b.x(), b.y());
 }
 
