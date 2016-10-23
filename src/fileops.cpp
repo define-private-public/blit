@@ -36,7 +36,9 @@
 
 
 namespace FileOps {
-    // Okay extentions when looking at files
+    /*!
+        Returns a QStringList of the file extensions that make up a valid Blit Animation file.
+    */
     QStringList okayExtensions() {
         QStringList ret;
         ret
@@ -45,7 +47,9 @@ namespace FileOps {
         return ret;
     }
 
-    // Okay filters for file dialogs
+    /*!
+        Returns a QStringList of file extension filters for dialog windows.
+    */
     QStringList validFilters() {
         QStringList ret;
         ret
@@ -56,7 +60,9 @@ namespace FileOps {
         return ret;
     }
     
-    // Used to map filters to extensions
+    /*!
+        Used to map filters to extensions.
+    */
     QHash<QString, QString> extensionMap() {
         QHash<QString, QString> ret;
         QStringList vf = validFilters();
@@ -69,7 +75,7 @@ namespace FileOps {
 
 
     /*!
-        Small helpr function to see if the extension for \a filename is part of the Blit File Format.
+        Small helper function to see if the extension for \a filename is part of the Blit File Format.
         Will return True if so, False otherwise,  By default it doesn't care about the case of the
         extensions, though you can set it do though via \a caseSensitive (default is false).
     */
@@ -197,9 +203,11 @@ namespace FileOps {
 
 
     /*== Blit Objects -> XML ==*/
-    
+   
+    /*!
+        Writes a Cel object to an XML stream.
+    */
     void celToXML(QXmlStreamWriter &xml, Cel *cel) {
-        // Writes a Cel object to an XML stream
         // <cel>
         xml.writeStartElement("cel");
 
@@ -222,9 +230,10 @@ namespace FileOps {
     }
 
 
+    /*!
+        Writes out the CelLibrary XML.  Will add a <cels></cels> block.
+    */
     void celsToXML(QXmlStreamWriter &xml, CelLibrary *cl) {
-        // Writes out the CelLibrary XML.  Will add a <cels></cels> block.
-
         // <cels>
         xml.writeStartElement("cels");
         xml.writeAttribute("count", QString::number(cl->numCels()));
@@ -239,10 +248,12 @@ namespace FileOps {
     }
     
     
+    /*!
+        Writes out a CelRef to an XML stream.  Will add a <staged_cel/> tag.
+    */
     void celRefToXML(QXmlStreamWriter &xml, CelRef *cr) {
-        // Writes out a CelRef to an XML stream.  Will add a <staged_cel/> tag
 
-        // <staged_cel>a
+        // <staged_cel>
         xml.writeStartElement("staged_cel");
         xml.writeAttribute("cel", cr->cel()->name());
         xml.writeAttribute("x", QString::number(cr->x()));
@@ -252,8 +263,10 @@ namespace FileOps {
     }
 
 
+    /*!
+        Write a Frame object to an XML stream.  Will add a <frame></frame> block.
+    */
     void frameToXML(QXmlStreamWriter &xml, Frame *frame) {
-        // Write a Frame object to an XML stream.  Will add a <frame></frame> block
 
         // <frame>
         xml.writeStartElement("frame");
@@ -268,9 +281,10 @@ namespace FileOps {
     }
 
 
+    /*!
+        Writes out the FrameLibrary to the XML stream.  Adds a <frames></frames> block.
+    */
     void framesToXML(QXmlStreamWriter &xml, FrameLibrary *fl) {
-        // Writes out the FrameLibrary to the XML stream.  Adds a <frames></frames> block
-
         // <frames>
         xml.writeStartElement("frames");
         xml.writeAttribute("count", QString::number(fl->numFrames()));
@@ -284,9 +298,11 @@ namespace FileOps {
         // </frames>
     }
     
-    
+   
+    /*!
+        // Writes out a TimedFrame to a <timedfrme/> tag to an XML Stream.
+    */
     void timedFrameToXML(QXmlStreamWriter &xml, TimedFrame *tf) {
-        // Writes out a TimedFrame to a <timedfrme/> tag
         // <timed_frame/>
         xml.writeStartElement("timed_frame");
         xml.writeAttribute("frame", tf->frame()->name());
@@ -296,8 +312,10 @@ namespace FileOps {
     }
     
     
+    /*!
+        Writes a Plane to the XML stream.  Adds a <plane></plane> block.
+    */
     void planeToXML(QXmlStreamWriter &xml, QList<QPointer<TimedFrame>> &plane, int num) {
-        // Writes a Plane to the XML stream.  Adds a <plane></plane> block
 
         // <plane>
         xml.writeStartElement("plane");
@@ -312,9 +330,11 @@ namespace FileOps {
         // </plane>
     }
 
-
+   
+    /*!
+        Write an XSheet object to an XML Stream.  Adds a <xsheet></xsheet> block.
+    */
     void xsheetToXML(QXmlStreamWriter &xml, XSheet *xsheet) {
-        // Write an XSheet object to an XML Stream.  Adds a <xsheet></xsheet> block
         // <xsheet>
         xml.writeStartElement("xsheet");
         xml.writeAttribute("fps", QString::number(xsheet->FPS()));
@@ -330,8 +350,10 @@ namespace FileOps {
     }
 
 
+    /*!
+        Write an Animation object to an XML stream.
+    */
     void animationToXML(QXmlStreamWriter &xml, Animation *anim) {
-        // Write an Animation object to an XML stream
         // <animation>
         xml.writeStartElement("animation");
         xml.writeAttribute("version", QString::number(curFileFormatVersion));
@@ -367,16 +389,16 @@ namespace FileOps {
 
 
 
+    /*== XML -> Blit Objects ==*/
 
-    /*== XML -> Blit Onjects ==*/
-
+    /*!
+        Takes in an XML Stream (and removes some data from it) to produce a Cel object.  This
+        fuction will aways return a Cel, though if the Cel is invalid, it may return a NULL pointer.
+        
+        It's assumed that the XML stream provided has just read <cel> as a start element.  And will
+        exit once a </cel> tag has just been read as an end element
+    */
     Cel *xmlToCel(QXmlStreamReader &xml, Animation *anim) {
-        // Takes in an XML Stream (and removes some data from it) to produce a Cel object.  This
-        // fuction will aways return a Cel, though if the Cel is invalid, it may return a NULL pointer.
-        //
-        // It's assumed that the XML stream provided has just read <cel> as a start element.  And will
-        // exit once a </cel> tag has just been read as an end element
-
         // Variable to build the Cel
         QSize size;
 
@@ -400,10 +422,11 @@ namespace FileOps {
     }
 
 
+    /*!
+        Takes in a XML stream that has just read a <cels> tag.  Will peel out
+        all of the Cels and put them into the CelLibrary for the Animation
+    */
     void xmlToCels(QXmlStreamReader &xml, Animation *anim) {
-        // Takes in a XML stream that has just read a <cels> tag.  Will peel out
-        // all of the Cels and put them into the CelLibrary for the Animation
-
         // Read the data
         QString tag;
         QXmlStreamReader::TokenType token;
@@ -430,10 +453,11 @@ namespace FileOps {
     }
 
 
+    /*!
+        Check an XML stream, that has just read a "staged_cel" token and will output
+        A CelRef that is inside that frame.
+    */
     CelRef *xmlToCelRef(QXmlStreamReader &xml, Animation *anim) {
-        // Check an XML stream, that has just read a "staged_cel" token and will output
-        // A CelRef that is inside that frame.
-
         // Read the data
         QPoint pos;
         QString celName = xml.attributes().value("cel").toString();
@@ -453,13 +477,14 @@ namespace FileOps {
     }
 
 
+    /*!
+        Take in an XML Stream and will output a Frame object.  If any of the XML is invalid, then
+        a NULL Pointer will be retruned.  This function will modify the XML Stream.
+        
+        It's assumed that the XML stream provided has just read <frame> as a start element. And will
+        exit once a </frame> end element has been reached.
+    */
     Frame *xmlToFrame(QXmlStreamReader &xml, Animation *anim) {
-        // Take in an XML Stream and will output a Frame object.  If any of the XML is invalid, then
-        // a NULL Pointer will be retruned.  This function will modify the XML Stream.
-        //
-        // It's assumed that the XML stream provided has just read <frame> as a start element. And will
-        // exit once a </frame> end element has been reached.
-
         // Read the data
         QString name = xml.attributes().value("name").toString();
         QList<CelRef *> celRefs;
@@ -500,10 +525,11 @@ namespace FileOps {
     }
 
 
+    /*!
+        Takes in a XML stream that has just read a <cels> tag.  Will peel out
+        all of the Frames and put them into the FrameLibrary for the Animation.
+    */
     void xmlToFrames(QXmlStreamReader &xml, Animation *anim) {
-        // Takes in a XML stream that has just read a <cels> tag.  Will peel out
-        // all of the Frames and put them into the FrameLibrary for the Animation
-
         // Read the data
         QString tag;
         QXmlStreamReader::TokenType token;
@@ -530,11 +556,12 @@ namespace FileOps {
     }
 
 
+    /*!
+        Takes in an XML stream that has just read a <timed_frame> token.  Will
+        return a pointer to a TimedFrame if the Frame is found, if not, then will
+        return a NULL pointer.
+    */
     TimedFrame *xmlToTimedFrame(QXmlStreamReader &xml, Animation *anim) {
-        // Takes in an XML stream that has just read a <timed_frame> token.  Will
-        // return a pointer to a TimedFrame if the Frame is found, if not, then will
-        // return a NULL pointer.
-
         // Read the data
         QString frameName = xml.attributes().value("frame").toString();
         int num = xml.attributes().value("number").toInt();
@@ -550,11 +577,12 @@ namespace FileOps {
     }
 
 
+    /*!
+        Once a <plane> tag has been read in by an XML stream, this will turn
+        that into a lit of TimedFrame pointers for a XSheet plane.  It's
+        possible that this coult return an empty list
+    */
     QList<TimedFrame *> xmlToPlane(QXmlStreamReader &xml, Animation *anim) {
-        // Once a <plane> tag has been read in by an XML stream, this will turn
-        // that into a lit of TimedFrame pointers for a XSheet plane.  It's
-        // possible that this coult return an empty list
-
         // Variables
         QList<TimedFrame *> timedFrames;
 
@@ -585,14 +613,15 @@ namespace FileOps {
     }
 
 
+    /*!
+        Will take in an XML stream and output an XSheet object.  If any bit of the XML parsing is
+        bad (or any other child Blit objects are bad), then an XSheet that is not similar to the
+        XML will be returned.
+        
+        It is assumed that <xsheet> has already been read as a starting element.  And will exit
+        once the </xsheet> end element has been read.
+    */
     XSheet *xmlToXSheet(QXmlStreamReader &xml, Animation *anim) {
-        // Will take in an XML stream and output an XSheet object.  If any bit of the XML parsing is
-        // bad (or any other child Blit objects are bad), then an XSheet that is not similar to the
-        // XML will be returned.
-        //
-        // It is assumed that <xsheet> has already been read as a starting element.  And will exit
-        // once the </xsheet> end element has been read.
-
         // Variables
         XSheet *xsheet = anim->xsheet();
         int fps = xml.attributes().value("fps").toInt();
@@ -624,14 +653,15 @@ namespace FileOps {
     }
 
 
+    /*!
+        Takes stuff away from an XML Stream and spits out an Animation object.  If any bit of the
+        XML was invalid (or child Blit objects, e.g. XSheet, Frame, Cel), a NULL pointer will be
+        returned.
+        
+        When calling this function, it has been assumed that <animation> has jut been read as a 
+        start element.  And when exiting, </animation> will have been read as an end element.
+    */
     Animation *xmlToAnimation(QXmlStreamReader &xml, QString resourceDir) {
-        // Takes stuff away from an XML Stream and spits out an Animation object.  If any bit of the
-        // XML was invalid (or child Blit objects, e.g. XSheet, Frame, Cel), a NULL pointer will be
-        // returned
-        //
-        // When calling this function, it has been assumed that <animation> has jut been read as a 
-        // start element.  And when exiting, </animation> will have been read as an end element
-
         // Variables
         QString name;
         QDateTime created, updated;
@@ -685,16 +715,16 @@ namespace FileOps {
         anim->setUpdated(updated);
         return anim;
     }
-
-
     
 
 
     /*== XML Color stuff ==*/
-    void colorsToXML(QXmlStreamWriter &xml, QList<QColor> &colors)  {
-        // Takes in a list of QColor objects (all are assumed to be valid RGBA), and will put them in
-        // nice XML format.
 
+    /*!
+        Takes in a list of QColor objects (all are assumed to be valid RGBA), and will put them in
+        nice XML format.
+    */
+    void colorsToXML(QXmlStreamWriter &xml, QList<QColor> &colors)  {
         QListIterator<QColor> iter(colors);
         char buff[9];
         while (iter.hasNext()) {
@@ -706,15 +736,15 @@ namespace FileOps {
             xml.writeAttribute("value", buff);
             xml.writeEndElement();
         }
-
     }
 
-
+    
+    /*!
+        Takes in an XML stream and ouputs a list of QColor objects.  For this funciton to work, the
+        <palette> tag must have just been read in as a start tag.  It will check the version number.
+        if anything goes bad, this funciton will return an empty list of QColors.
+    */
     QList<QColor> xmlToColors(QXmlStreamReader &xml) {
-        // Takes in an XML stream and ouputs a list of QColor objects.  For this funciton to work, the
-        // <palette> tag must have just been read in as a start tag.  It will check the version number.
-        // if anything goes bad, this funciton will return an empty list of QColors.
-
         // Vars
         QList<QColor> colors;
 
@@ -770,12 +800,13 @@ namespace FileOps {
 
     /*== Everything Else ==*/
 
+    /*!
+        Saves an Animation object to a desitionation directory (path in thise case).  It will look at
+        the Anim. object, put its data into a JSON format, and thens save it in the directory.  If you
+        want to perform a "saveAs" function, make sure that the target path/directoy doesn't have a
+        sequence.xml file inside of it.
+    */
     bool saveAnimation(Animation *anim, QString path) {
-        // Saves an Animation object to a desitionation directory (path in thise case).  It will look at
-        // the Anim. object, put its data into a JSON format, and thens save it in the directory.  If you
-        // want to perform a "saveAs" function, make sure that the target path/directoyr doesn't have a
-        // sequence.xml file inside of it.
-
         QDir dir(path);
         QFileInfo pathInfo(path);
 
@@ -829,12 +860,13 @@ namespace FileOps {
     }
 
 
+    /*!
+        Takes in a folder (for path) and will try to read in it's XML sequence file.  It will then put
+        all of the information into their associated dats structures (Animation, XSheet, Frame, Cel).
+        If there is any failure at all, a NULL pointer will be returned On success, you get the Animation
+        object you so long desire.
+    */
     Animation *loadAnimation(QString path) {
-        // Takes in a folder (for path) and will try to read in it's XML sequence file.  It will then put
-        // all of the information into their associated dats structures (Animation, XSheet, Frame, Cel).
-        // If there is any failure at all, a NULL pointer will be returned On success, you get the Animation
-        // object you so long desire.
-
         // Preiliminary checks
         // If it passes these smell tets, then it is safe to assume that this is a valid Blit Animation
         QDir dir(path);
@@ -893,10 +925,12 @@ namespace FileOps {
     }
 
 
+    /*!
+        Will save a list of colors (i.e. a Color Palette) to an xml file.  All of the values in colors
+        should be unique.  path should be a valid Blit File Format directory.  Will return true on
+        success, false otherwise.
+    */
     bool savePalette(QList<QColor> &colors, QString path) {
-        // Will save a list of colors (i.e. a Color Palette) to an xml file.  All of the values in colors
-        // should be unique.  path should be a valid Blit File Format directory.  Will return true on
-        // success, false otherwise.
         QDir dir(path);
         QFileInfo pathInfo(path);
 
@@ -938,11 +972,12 @@ namespace FileOps {
     }
 
 
+    /*!
+        Will try to load a list of colors from the "palette.xml" file in valid blit animation file.
+        For the variable path, just supply the path to the blit animation file folder.  On success,
+        this function will return someting.  On failure, it will return an empty list.
+    */
     QList<QColor> loadPalette(QString path) {
-        // Will try to load a list of colors from the "palette.xml" file in valid blit animation file.
-        // For the variable path, just supply the path to the blit animation file folder.  On success,
-        // this function will return someting.  On failure, it will return an empty list.
-
         // Preiliminary checks
         // If it passes these smell tests, then it is safe to assume that this is a valid Blit Animation
         QList<QColor> colors;
@@ -1001,10 +1036,14 @@ namespace FileOps {
     }
 
 
+
     /*== Import functions ==*/
+
+    /*!
+        Loads up an image file (preferably a PNG) and will output a pointer to a newly allocated
+        PNGCel.  If anything fails, this will return a NULL pointer.
+    */
     PNGCel *loadStillImage(QString filename, Animation *anim) {
-        // Loads up an image file (preferably a PNG) and will output a pointer to a newly allocated
-        // PNGCel.  If anything fails, this will return a NULL pointer.
         QImage tmp(filename);
         if (tmp.isNull())
             return NULL;
@@ -1019,19 +1058,24 @@ namespace FileOps {
 
 
     /*== Export functions ==*/
+
+    /*!
+        Looks at a frame object, and will save it as an image to dest.  Please make sure to supply a
+        valid image extension (like .png).  Will return true on success, false otherwise.  Will always
+        overwrite the existing image (if there is one).  Please note that this function did more in
+        the python version of Blit, but it seems that stuff may be a bit redundant.
+    */
     bool saveStillFrame(Frame *frame, QString dest) {
-        // Looks at a frame object, and will save it as an image to dest.  Please make sure to supply a
-        // valid image extension (like .png).  Will return true on success, false otherwise.  Will always
-        // overwrite the existing image (if there is one).  Please note that this function did more in
-        // the python version of Blit, but it seems that stuff may be a bit redundant.
         return frame->render().save(dest);
     } 
 
 
+    /*!
+        Takes in a QImage that represents a spritesheet and will save it to dest.  Please supply a valid
+        image extension for dest (like .png).  Will return true on success, false otherwise.  Will 
+        overwrite existing data.
+    */
     bool saveSpritesheet(QImage spritesheet, QString dest) {
-        // Takes in a QImage that represents a spritesheet and will save it to dest.  Please supply a valid
-        // image extension for dest (like .png).  Will return true on success, false otherwise.  Will 
-        // overwrite existing data.
         return spritesheet.save(dest);
     }
 };

@@ -73,17 +73,31 @@ public:
 
 
 signals:
+    /*! Emitted when the zoom has changed. */
     void zoomChanged(double zoom);
+
+    /*! Emitted when the frameSize has changed. */
     void frameSizeChanged(QSize size);
+
+    /*! Emitted when the current TimeFramed has changed. */
     void curTimedFrameChanged(TimedFrame *tf);
+
+    /*! Emitted when the current CelRef has changed. */
     void curCelRefChanged(CelRef *cr);
+
+    /*! Emitted when the current drawing QColor has changed. */
     void curColorChanged(QColor clr);
+
+    /*! Emitted when the current sequence number has changed. */
     void curSeqNumChanged(quint32 seqNum);
 
+    /*! Emitted when an Animation has just been loaded. */
     void animLoaded(Animation *anim);
 
+    /*! Emitted when the the state of playback has changed. */
     void animationPlaybackStateChanged(bool isPlaying);
 
+    /*! Emitted when the mouse has moved on the Canvas. */
     void canvasMouseMoved(QPointF pos);
 
 

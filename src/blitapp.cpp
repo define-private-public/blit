@@ -9,7 +9,7 @@
     \class BlitApp
     \brief BlitApp is the "all seeing eye," god module of the application.
 
-    Fear it
+    Fear it.
 */
 
 
@@ -194,6 +194,7 @@ quint32 BlitApp::curSeqNum() {
 
     \sa frameSize()
     \sa frameSizeChanged()
+    \sa Animation::setFrameSize()
 */
 void BlitApp::setFrameSize(QSize frameSize) {
     if (_anim)
@@ -550,7 +551,7 @@ void BlitApp::onOpenAnim() {
 
 
 /*!
-    will opena a dialog window and upon success of a valid directory selected, will save a
+    Will open a dialog window and upon success of a valid directory selected, will save a
     copy of the current Animation there, and set it as the current project locaiton.  It is
     tripped by "File > Save As..."  Will stop playing the animation.
 
@@ -589,7 +590,7 @@ void BlitApp::shutdown() {
 
 /*!
     When the current tool is changed in the Toolbox widget, this slot will be called.  It's
-     job is to disconnect the signals/slots of the previous tool and hookup the new one.
+    job is to disconnect the signals/slots of the previous tool and hookup the new one.
 */
 void BlitApp::onCurToolChanged(Tool *tool) {
     qDebug() << "[BlitApp tool changed]:" << tool->name();
@@ -680,8 +681,8 @@ void BlitApp::showExportSpritesheet() {
 
 
 /*!
-    Will show a dialog to export a still image.  Also will stop playing the Animation. "File >
-    Export > Still Image"
+    Will show a dialog to export a still image.  Also will stop playing the Animation. "File ->
+    Export -> Still Image"
 */
 void BlitApp::showExportStillImage() {
     playAnimation(false);
