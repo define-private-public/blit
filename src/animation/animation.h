@@ -1,15 +1,6 @@
 // File:         animation/animation.h
 // Author:       Ben Summerton (define-private-public)
-// Description:  The Animation class is a simple container (or datastructure) for the animation that is
-//               currently being worked with.  XSheet is meant for things like managing/organizing the 
-//               individual frames.  This one is for data like the name of the sequuence, its coreation
-//               date, last edited date, and probably a buncyh of other thigns as well (in the future).
-//
-//               An Animation object is considered Null if its containing XSheet is Null.  An XSheet
-//               pointer will always be present in the Animation object, but there is a chance that it
-//               would be Null.  To change the XSheet, just use setXSheet()
-//
-//               the Frame Size is guarenteed to be at least 1x1
+// Description:  Header file for the Animation class.
 
 
 #ifndef ANIMATION_H

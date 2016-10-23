@@ -16,7 +16,7 @@
     pointer will always be present in the Animation object, but there is a chance that it
     would be Null.  To change the XSheet, just use setXSheet().
     
-    The Frame Size is guarenteed to be at least 1x1
+    The Frame Size is guarenteed to be at least 1x1.
 */
 
 
