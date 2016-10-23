@@ -36,11 +36,13 @@
 
 
 namespace Spritesheet {
+    /*!
+        Converts the Frames in an Animation to a spritesheet (in a QImage).  This function assumes
+        that anim is not Null, order is either set to SPRITESHEET_ROW_MAJOR or SPRITESHEET_COLUMN_MAJOR,
+        numPerOrder is a positive integer, and scale is a positive integer as well.  If any of these
+        variables do not pass the sniff test, animationToSpritesheet() will return a Null QImage.
+    */
     QImage animationToSpritesheet(Animation *anim, int order, int numPerOrder, QColor background, int scale) {
-        // Converts the Frames in an Animation to a spritesheet (in a QImage).  This function assumes
-        // that anim is not Null, order is either set to SPRITESHEET_ROW_MAJOR or SPRITESHEET_COLUMN_MAJOR,
-        // numPerOrder is a positive integer, and scale is a positive integer as well.  If any of these
-        // variables do not pass the sniff test, animationToSpritesheet will return a Null QImage.
         if (anim->isEmpty())
             return QImage();
         if ((order != SPRITESHEET_ROW_MAJOR) && (order != SPRITESHEET_COLUMN_MAJOR))
@@ -115,6 +117,11 @@ int SpritesheetDialog::_rows = 1;
 int SpritesheetDialog::_columns = 1;
 
 
+/*!
+    Creates a new SpritesheetDialoag.  \a parent should be the parent window this dialog belongs to.
+
+    NOTE: this class is a singleton
+*/
 SpritesheetDialog::SpritesheetDialog(QWidget *parent) :
     QDialog(parent),
     _ui(new Ui::SpritesheetDialog)
@@ -162,6 +169,9 @@ SpritesheetDialog::SpritesheetDialog(QWidget *parent) :
 }
 
 
+/*!
+    Cleans up the SpritesheetDialog.  Also deletes the singleton.
+*/
 SpritesheetDialog::~SpritesheetDialog() {
     // cleanup the singleton
     _instance = NULL;
@@ -169,6 +179,9 @@ SpritesheetDialog::~SpritesheetDialog() {
 }
 
 
+/*!
+    Sets the Animation object that this dialog is trying to spritesheet.
+*/
 void SpritesheetDialog::setAnim(Animation *anim) {
     _anim = anim;
     if (_anim) {
@@ -179,9 +192,11 @@ void SpritesheetDialog::setAnim(Animation *anim) {
 }
 
 
+/*!
+    Calling this funciton will set the "previewImage," widget to have a QPixmap of the spriteshet set
+    to it.  if _showPreview is false, nothing will happen.
+*/
 void SpritesheetDialog::_generatePreview() {
-    // Calling this funciton will set the "previewImage," widget to have a QPixmap of the spriteshet set
-    // to it.  if _showPreview is false, nothing will happen.
     if (!_showPreview)
         return;
     
@@ -238,8 +253,10 @@ void SpritesheetDialog::_generatePreview() {
 }
 
 
+/*!
+    small convinience function to generate a QImage spritesheet of the Animation.
+*/
 QImage SpritesheetDialog::mkSpritesheet() {
-    // Msall convinience function to generate a QImage spritesheet of the Animation
     if (_anim)
         return Spritesheet::animationToSpritesheet(_anim, _order, _numPerOrder, _bgColor, _scale);
     else
@@ -247,6 +264,9 @@ QImage SpritesheetDialog::mkSpritesheet() {
 }
 
 
+/*!
+    Brings up a dialog to save a generated spritesheet.
+*/
 bool SpritesheetDialog::saveSpritesheet() {
     // Brings up a File Dialog to save the spritesheet somewhere
     QString filename = QFileDialog::getSaveFileName(this, tr("Save Spritesheet"), _lastFilename, FileOps::validFilters().join(";;"), &_selectedFilter);
@@ -271,8 +291,10 @@ bool SpritesheetDialog::saveSpritesheet() {
 }
 
 
+/*!
+    Toggles the preview state.
+*/
 void SpritesheetDialog::togglePreview(int state) {
-    // Toggles the preview state
     _showPreview = (state == Qt::Checked);
     _generatePreview();
 }
@@ -287,9 +309,11 @@ void SpritesheetDialog::toggleGrid(int state) {
 }
 
 
+/*!
+    Should be called by ehtier radios buttons with their "clicked," signal.  This will change the order
+    of the generated spritesheet.
+*/
 void SpritesheetDialog::setOrder() {
-    // Should be called by ehtier radios buttons with their "clicked," signal.  This will change the order
-    // of the generated spritesheet
     int newWorldOrder = _ui->rowRadio->isChecked() ? SPRITESHEET_ROW_MAJOR : SPRITESHEET_COLUMN_MAJOR;        // Fun variable names
     if (newWorldOrder != _order) {
         _order = newWorldOrder;
@@ -299,17 +323,19 @@ void SpritesheetDialog::setOrder() {
 }
 
 
+/*!
+    Will set the values in the Row and Column spiner boxes, as well as set the _numPerOrder variable.
+    Should be called by the "valueChanged," singal for the row/column spin boxes.
+*/
 void SpritesheetDialog::setDimensions() {
-    // Will set the values in the Row and Column spiner boxes, as well as set the _numPerOrder variable.
-    // Should be called by the "valueChanged," singal for the row/column spin boxes
     _numPerOrder = _ui->fpoSpinner->value();
     _generatePreview();
 }
 
-
+/*!
+    Changes the scale of the genreates spritesheet, will also udate some of the info displayed.
+*/
 void SpritesheetDialog::setScale(int scale) {
-    // Changes the scale of the genreates spritesheet, will also udate some of the info
-    // displayed
     if (_scale != scale) {
         _scale = scale;
         _generatePreview();
@@ -321,12 +347,13 @@ void SpritesheetDialog::setScale(int scale) {
 }
 
 
+/*!
+    Changes the background color that the spritesheet will have.
+*/
 void SpritesheetDialog::setBGColor(QColor clr) {
-    // Changes the background color
     if (_bgColor != clr) {
         _bgColor = clr;
         _generatePreview();
     }
 }
-
 
